@@ -1,0 +1,69 @@
+package seonjingame;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class mains extends JFrame implements ActionListener {
+	int SIZE1 = 4; // 버튼 그리드의 크기
+    int SIZE2 = 6;
+    JButton[][] buttons; // 버튼 그리드
+    Image[][] buttonImages;
+
+    public mains() {
+        setTitle("짝 맞추기 게임");
+        this.setSize(600, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // 중앙에 GridLayout 배치
+        JPanel centerPanel = new JPanel();
+        centerPanel.setLayout(new GridLayout(SIZE1, SIZE2));
+        add(centerPanel, BorderLayout.CENTER);
+
+        buttons = new JButton[SIZE1][SIZE2];
+        
+        String[] imgPath = new String[12];
+        for (int i = 1; i <= 12; i++) {
+            imgPath[i - 1] = "C:\\Javas\\Savefil\\seonjingame\\src\\seonjingame\\imgs\\image" + i + ".png";
+        }
+        //img
+        List<ImageIcon> iconList = new ArrayList<>();
+    
+        for (int i = 0; i < (SIZE1*SIZE2)/2; i++) {
+        	ImageIcon icon = new ImageIcon(imgPath[i]);
+            iconList.add(icon);
+            iconList.add(icon);
+        }
+        
+       Collections.shuffle(iconList);
+     // 버튼을 프레임에 추가
+       int k =0;
+        for (int i = 0; i < SIZE1; i++) {
+        	
+            for (int j = 0; j < SIZE2; j++) {
+                buttons[i][j] = new JButton(iconList.get(k));
+                buttons[i][j].addActionListener(this);
+                buttons[i][j].setPreferredSize(new Dimension(100, 100));
+                centerPanel.add(buttons[i][j]);
+                k++;
+            }
+        }
+        
+        setVisible(true);
+    }
+
+    // 버튼 클릭 이벤트 처리
+    public void actionPerformed(ActionEvent e) {
+
+    }
+    
+
+    public static void main(String[] args) {
+        new mains();
+    }
+   
+}

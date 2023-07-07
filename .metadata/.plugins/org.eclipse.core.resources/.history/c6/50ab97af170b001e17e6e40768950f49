@@ -1,0 +1,23 @@
+package seonjingame;
+
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
+
+import java.io.*;
+
+public class adiotest {
+
+    public static void main(String[] args) {
+    	 FileInputStream fis;
+    	    try {
+    	        fis = new FileInputStream(new File("C:\\Javas\\Savefil\\seonjingame\\src\\seonjingame\\audio\\Correct 1.mp3"));
+    	        Player player = new Player(fis);
+    	        player.play();
+    	    } catch (FileNotFoundException e) {
+    	        e.printStackTrace();
+    	    } catch (JavaLayerException e) {
+    	        e.printStackTrace();
+    	    } 
+    }
+}
+

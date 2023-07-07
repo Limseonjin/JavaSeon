@@ -1,0 +1,14 @@
+package seonjingame;
+
+import javax.swing.*;
+
+public class statefinish extends JPanel{
+	
+	public statefinish() {
+		
+	}
+	public void whatstate(Class c) {
+		
+	}
+
+}

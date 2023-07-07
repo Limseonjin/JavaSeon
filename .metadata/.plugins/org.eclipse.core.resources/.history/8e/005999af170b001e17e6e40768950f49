@@ -1,0 +1,38 @@
+package seonjingame;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+public class mains4 extends JPanel {
+	JButton easy, nomal, hard;
+	mains1 win;
+	
+	public mains4(mains1 win) {
+		this.win = win;
+		easy = new JButton("쉬움");
+		nomal = new JButton("보통");
+		hard = new JButton("어려움");
+		
+		add(easy); add(nomal); add(hard);
+		
+		easy.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				win.change("jp3");
+			}
+    		
+    	});
+		nomal.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				win.change("jp4");
+			}
+    		
+    	});
+		
+	}
+}

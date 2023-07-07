@@ -1,0 +1,38 @@
+package memojang;
+
+import java.awt.Color;
+
+import javax.swing.*;
+
+public class Memoinfo extends JFrame {
+	JTabbedPane t = new JTabbedPane(JTabbedPane.BOTTOM);
+	
+	public Memoinfo() {
+		this.setTitle("메모장 정보");
+		
+		JPanel p1 = new JPanel(); p1.setBackground(Color.lightGray);
+		
+		JLabel heL = new JLabel();
+		heL.setText("윈도우 메모장처럼 쓰세요");
+		p1.add(heL);
+		JLabel dan = new JLabel();
+		dan.setText("단축키 알아서 쓰세용");
+		p1.add(heL);
+		JLabel cen = new JLabel();
+		cen.setText("고객센터 문의 1559-1563");
+		p1.add(heL);
+		
+		t.add("도움말",p1);
+		JPanel p2 = new JPanel();p2.setBackground(Color.white);
+		t.add("단축키",p2);
+		JPanel p3 = new JPanel();
+		t.add("고객센터안내",p3);
+		
+		this.add(t);
+		setSize(450, 350);
+		setLocationRelativeTo(this);
+		setVisible(true);
+		
+	}
+
+}

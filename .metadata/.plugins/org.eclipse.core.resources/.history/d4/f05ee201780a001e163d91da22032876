@@ -1,0 +1,79 @@
+package memojang;
+	import javax.swing.*;
+	import java.awt.*;
+	import java.awt.event.*;
+
+public class Calulator extends JFrame implements ActionListener {
+
+	    private JTextField displayField;
+	    private JButton[] buttons = new JButton[16];
+	    private String[] buttonLabels = {"7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", "C", "=", "+"};
+	    private String operator;
+	    private int num1, num2;
+	    private String num;
+	    private String prev_operation = "";
+	    public Calulator() {
+	        setTitle("마우스로 계산기 쓰기");
+	        JPanel panel = new JPanel(new GridLayout(4, 4));
+	        displayField = new JTextField(20);
+	        displayField.setEditable(false);
+	        displayField.setHorizontalAlignment(JTextField.RIGHT);
+
+	        for (int i = 0; i < buttons.length; i++) {
+	            buttons[i] = new JButton(buttonLabels[i]);
+	            buttons[i].addActionListener(this);
+	            panel.add(buttons[i]);
+	        }
+
+	        add(displayField, BorderLayout.NORTH);
+	        add(panel, BorderLayout.CENTER);
+
+	        pack();
+	        setVisible(true);
+	        setBounds(500,300,500,600);
+	    }
+
+	    public void actionPerformed(ActionEvent e) {
+	    	String inputValue = e.getActionCommand(); // 클릭한 버튼의 값
+	        
+	        if(inputValue.equals("C")) { 
+	          // 취소키면 => 초기화
+	          displayField.setText("");
+	        }else if(inputValue.equals("=")) {
+	          // 등호 => calculate함수에서 계산한 결과를 double형으로 반환해서, 
+	          //        inputSpace에 보여주고, num 초기화
+	          String result = Double.toString(calulate(displayField.getText()));
+	          displayField.setText(""+result);
+	          num = "";
+	        }else if(inputValue.equals("±")) {
+	          /*
+	           *   플러스 마이너스 버튼이다.
+	  	     *   숫자면 -1을 곱해주고
+	  		 *   사칙연산 키가 오면 계산이 된다.
+	  		 *   하지만 플러스마이너스 키를 누른 다음에 또 숫자가 나오면 inputSpace가 초기화 된다.(맥북에서)
+	  		 *   맥북은 사칙연산버튼을 누르면 inputSpace에 값이 바로바로 사라진다.
+	  		 *   근데 현재 내 계산기는 모든 계산식이 inputSpace에서 나온다
+	  		 *   따라서  플러스 마이너스 키를 쓰기 애매하다.
+	  		 *   플러스마이너스 키는 나중에 구현하고
+	  		 *   사칙연산 우선순위를 먼저 구현해보자.
+	  		 *   마찬가지로 마이너스 처리도 추후에 맥북처럼 바로바로 값을 초기화 시키거나
+	  		 *   괄호를 넣는 방법으로 처리해야겠다.
+	  		 */
+	        }
+	        else {
+	          // 숫자일때 => 연결연결  
+	        	displayField.setText(displayField.getText() + inputValue);
+	        }
+	        // prev_operation에 다음 키와 비교위해 현재 버튼 값 저장.
+	        prev_operation = inputValue;
+	      }
+
+		private double calulate(String text) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+	    }
+	    }
+
+	    
+}
