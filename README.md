@@ -14,7 +14,7 @@
   <li>캘린더 (calendar.MemoCalendar.java)
      <br>-데이터베이스를 이용한 일정 검색, 삽입, 수정, 삭제 기능을 제공합니다. 
   <br><br>
-  <li>카드 짝 맞추기 게임 (seonjingame.mains1.java)
+  <li>카드 짝 맞추기 게임 (seonjingame.mains1.java) - 직접 제작 
     <br>-난이도는 상,중,하로 나뉘어 있으며 제한시간 내에 모든 짝을 맞추면 승리합니다. 
   <br><br>
   <li>계산기 (memojang.Calulator.java)
